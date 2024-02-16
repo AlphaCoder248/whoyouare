@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Question Game</title> 
+    <style>    
+      body {      
+        font-family: Arial, sans-serif;      
+        text-align: center;     
+        margin: 50px;    
+      }
+    #question {     
+      font-size: 20px;      
+      margin-bottom: 20px;    
+    }
+    #yes, #no {      
+      padding: 10px 20px;      
+      font-size: 16px;      
+      margin: 10px;      
+      cursor: pointer;    
+    }
+    #yes:hover, #no:hover {      
+      background-color: lightgray;    
+    }
+    #yes.increased {      
+      font-size: 24px;    
+    }  
+    </style>
+  </head>
+  <body>
+  <div id="question">Is this a great program?</div>  
+    <button id="yes" onclick="increaseSize()">Yes</button>  
+    <button id="no" onclick="changeTitle()">No</button>
+  <script>    
+    function increaseSize() {      
+      document.getElementById('yes').classList.add('increased');    
+    }
+    function changeTitle() {      
+      const noButton = document.getElementById('no');      
+      const titles = [        'Changed 1!',        'Changed 2!',        'Changed 3!',        // ... add more titles as needed      ];
+      const currentIndex = titles.indexOf(noButton.innerHTML);      
+      const nextIndex = (currentIndex + 1) % titles.length;
+      noButton.innerHTML = titles[nextIndex];    
+    }  
+  </script>
+</body>
+</html>
